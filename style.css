@@ -17,14 +17,15 @@
 }
 
 :root {
-  --dark-bg: rgba(15, 15, 15, 0.70);
+  --dark-bg: rgba(15,15,15,0.7);
+  --orng-bg: rgba(212, 143, 40, 0.7);
   --rounded: 30px;
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-h1, h2, h3, blockquote {
+h1, h2, h3, h4, blockquote {
   font-family: 'Sriracha', cursive;
   font-weight: 200;
   font-style: normal;
@@ -32,6 +33,11 @@ h1, h2, h3, blockquote {
 
 p {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+select {
+  width: 200px;
+  font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 main {
@@ -49,7 +55,7 @@ main {
 }
 
 header {
-  background: var(--dark-bg);
+  background: var(--orng-bg);
   grid-column: 2 / span 6;
   font-size: 2.5rem;
   padding: 2rem;
@@ -60,7 +66,7 @@ header {
 section {
   grid-column: 2 / span 6;
   padding: 1rem;
-  background: var(--dark-bg);
+  background: var(--orng-bg);
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: var(--rounded);
@@ -68,9 +74,56 @@ section {
 
 blockquote {
   margin: 0;
-  padding: 0;
+  padding: 1rem;
   grid-column: 2 / span 6;
   margin-bottom: var(--spacing);
   text-align: center;
   font-style: italic;
+}
+
+footer {
+  grid-column: 2 / span 6;
+  padding: 5px;
+  background: var(--dark-bg);
+  color: #fff;
+  text-align: center;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+#badge {
+  min-width: 200px;
+  flex: 1;
+  order: 1;
+  justify-content: center;
+}
+
+#badge-text {
+  flex: 2 1;
+  order: 2;
+  align-self: stretch;
+}
+
+#project-desc {
+  flex: 2 1;
+  order: 3;
+  align-self: stretch;
+}
+
+#stl_cont {
+  flex: 2 1;
+  order: 4;
+  align-self: flex-end;
+  height: 400px;
+}
+
+#project-title {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: oblique;
 }
