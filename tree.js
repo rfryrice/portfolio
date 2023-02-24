@@ -133,21 +133,20 @@ function Icicle(data, { // data is either tabular (array of objects) or hierarch
     return svg.node();
   }
 
-
-const fileURL = '../knowledge.json';
-let data = await d3.json(fileURL);
+async function genChart(container) {
+  let data = await d3.json('../knowledge.json');
+  
+  let chart = Icicle(data,{
+    value: d => d.value,
+    label: d => d.name,
+    title: (d, n) => `${n.ancestors().reverse().map(d => d.data.name).join(".")}\n${d.title}`, // hover text,
+    parentId: "knowledge",
+    children:d => d.children,
+    width: container.clientWidth})
+  
+  container.appendChild(chart);
+}
 
 const container = document.querySelector('#knowledge-graph');
 
-let chart = Icicle(data,{
-  value: d => d.value,
-  label: d => d.name,
-  title: (d, n) => `${n.ancestors().reverse().map(d => d.data.name).join(".")}\n${d.title}`, // hover text,
-  parentId: "knowledge",
-  children:d => d.children,
-  width: container.clientWidth})
-
-
-
-let element = document.querySelector('#knowledge-graph');
-element.appendChild(chart);
+await genChart(container);
