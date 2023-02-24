@@ -8,6 +8,7 @@
   h2 {
     font-size: medium;
   }
+
 }
 
 .three {
@@ -19,25 +20,57 @@
 :root {
   --dark-bg: rgba(15,15,15,0.7);
   --orng-bg: rgba(212, 143, 40, 0.7);
+  --link: rgb(33, 105, 192);
   --rounded: 30px;
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-h1, h2, h3, h4, blockquote {
+h1, h2, h3, h4, h5, blockquote {
   font-family: 'Sriracha', cursive;
   font-weight: 200;
   font-style: normal;
+  text-shadow: 0.1ex 0.1ex 0px var(--dark-bg);
+}
+
+h3, h4, h5 {
+  font-size: 16pt;
 }
 
 p {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+a {
+  box-shadow: inset 0 0 0 0 var(--link);
+  color: var(--link);
+  margin: 0 -.25rem;
+  padding: 0 .25rem;
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+a:hover {
+  box-shadow: inset 100px 0 0 0 var(--link);
+  color: white;
+}
+
+a[id=badge-link]:hover{
+  box-shadow: inset 0 0 0 0 white;
+  border-radius: 50%;
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+a[id=badge-link]:hover{
+  box-shadow: inset 300px 0 0 0 white;
+  border-radius: 50%;
+}
+
 select {
   width: 200px;
   font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+  background-color: black;
 }
 
 main {
@@ -46,8 +79,8 @@ main {
   z-index: 99;
   position: absolute;
   width: 100%;
-  margin: 0px auto;
-  padding: 120px 0px;
+  margin: 0px;
+  padding: 100px 0px 0px;
   
   
   display: grid;
@@ -82,36 +115,42 @@ blockquote {
 }
 
 footer {
-  grid-column: 2 / span 6;
+  margin-top: 50px;
+  grid-column: 1 / span 8;
   padding: 5px;
   background: var(--dark-bg);
   color: #fff;
   text-align: center;
 }
 
+/* flex box start*/
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   gap: 10px;
 }
 
 #badge {
   min-width: 200px;
-  flex: 1;
+  max-width: 250px;
+  flex: 2 1;
   order: 1;
   justify-content: center;
+  align-self: center;
 }
 
+
 #badge-text {
-  flex: 2 1;
+  min-width: 220px;
+  flex: 2 2;
   order: 2;
   align-self: stretch;
 }
 
 #project-desc {
-  flex: 2 1;
+  flex: 2 2;
   order: 3;
   align-self: stretch;
 }
@@ -122,8 +161,15 @@ footer {
   align-self: flex-end;
   height: 400px;
 }
+/* flex box end*/
 
+/* words before select element */
 #project-title {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-style: oblique;
 }
+
+#knowledge-graph {
+  width: 100%;
+}
+

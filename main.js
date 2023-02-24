@@ -230,7 +230,7 @@ window.addEventListener('resize', function () {
 const stl_viewer = new StlViewer(document.getElementById("stl_cont"),
   {
     allow_drag_and_drop: false,
-    auto_resize: true,
+    auto_resize: false,
     models: new Array(
       { id: 0, filename: "../STL/DuckGear.stl", rotationx: 1 },
       { id: 1, filename: "../STL/EEGboard_housing_v3.STL", rotationx: 1, opacity: 0 },
@@ -238,9 +238,11 @@ const stl_viewer = new StlViewer(document.getElementById("stl_cont"),
       { id: 3, filename: "../STL/FilmHolder_Bottom.STL", x: -70, rotationx: 1, opacity: 0 },
       { id: 4, filename: "../STL/FilmHolder_Top.STL", x: 70, rotationx: 1, opacity: 0 }
     ),
-
+    zoom: 150,
+    controls: 1
   });
 
+console.log(stl_viewer.get_camera_state())
 let modelData;
 const fileURL = '../model_descriptions.json';
 
@@ -259,6 +261,8 @@ selectElement.addEventListener('change', (event) => {
   const result = document.querySelector('#project-text');
   const getID = event.target.value;
   result.textContent = modelData[getID]['p'];
+  const fromFilm = false;
+
   if (getID == 'film') {
     for (let i = 0; i < 3; i++) {
       stl_viewer.set_opacity(i, 0)

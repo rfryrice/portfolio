@@ -16,7 +16,6 @@
   <canvas class="three" id="bg"></canvas>
 
   <main>
-
     <header>
       <h1>Romuald Francis Yang</h1>
       <h2>🚀 Welcome to my website!</h2>
@@ -30,30 +29,31 @@
       <h3>📜 Background</h3>
       <p>
         I am a recent graduate from University of the Pacific. I recieved my Bachelor's degree in Bioengineering from
-        the School of Engineering of Computer Science. On this page you will find a collection of my work
+        the School of Engineering and Computer Science. On this page you will find a collection of my work
         related to engineering and design.
       </p>
 
       <p>
-        The following is a visualization of the skills I have attained thusfar, along with the amount of experience I have with each skill.
+        The following is a visualization of the skills I have attained thus far, along with the relative amount of experience I have with each skill.
+        The particular values are arbitrary. There are <span title="Like This One!" style="cursor:pointer">easter eggs</span> hidden in most of the tiles 🫡 
+
       </p>
 
+      <div id="knowledge-graph"></div>
+
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.
+        I am currently seeking to shift my career into the Biotech industry.
+        If you are a recruiter in the Biotech industry, you can contact me through <a href="https://www.linkedin.com/in/rfyang/">LinkedIn</a>
       </p>
 
     </section>
     <span style="height:50px; grid-column: 2 / span 6;"></span>
     <section name="solidworks">
-      <h4>🗿 Solidworks</h4>
+      <h4> 🗿 Solidworks</h4>
       <div class="gallery">
-        <div id="badge">
-          <a href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-36YQKV2DFZ" target="_blank"><img src="CSWP.svg" alt="CSWP badge" height="200"></a>
-        </div>
+        
+          <a id="badge-link" href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-36YQKV2DFZ" target="_blank"><img src="CSWP.svg" alt="CSWP badge" id="badge"></a>
+        
         
         <p id="badge-text">
           I am a Certified Solidworks Professional in Mechanical Design (CSWP-MD). 
@@ -83,9 +83,26 @@
     
     </section>
     <span style="height:50px; grid-column: 2 / span 6;"></span>
-    <footer><p>Last updated: February 2023</p></footer>
+    <section name="data-science">
+      <h5> 🎢 Data Science</h5>
+      <p>
+        On my <a href="https://github.com/rfryrice">Github</a> account you will find a data-science repository, which contains a collection of assignments
+        I have completed as part of a bootcamp. At university I graduated with a Minor in Data Science, but most of the
+        projects were done in a group. The repo contains projects I completed individually.
+      </p>
+
+      <p>
+        I believe I have a solid understanding of Statistics and Machine Learning. I mainly use Python for analysis. I am currently exploring the 
+        deep-learning framework Pytorch.
+      </p>
+    </section>
+    
+    <footer>
+      <p>Last updated: February 2023</p>
+    </footer>
   </main>
   <script type="module" src="/main.js"></script>
+  <script type="module" src="/tree.js"></script>
 </body>
 
 </html>
