@@ -156,10 +156,10 @@ footer {
 }
 
 #stl_cont {
+  min-width: 300px;
   flex: 2 1;
   order: 4;
-  align-self: flex-end;
-  height: 400px;
+  align-self: stretch;
 }
 /* flex box end*/
 

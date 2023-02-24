@@ -134,9 +134,9 @@ function Icicle(data, { // data is either tabular (array of objects) or hierarch
   }
 
 async function genChart(container) {
-  let data = await d3.json('../knowledge.json');
+  let data = await d3.json('knowledge.json');
   
-  let chart = Icicle(data,{
+  var chart = Icicle(data,{
     value: d => d.value,
     label: d => d.name,
     title: (d, n) => `${n.ancestors().reverse().map(d => d.data.name).join(".")}\n${d.title}`, // hover text,
@@ -147,6 +147,6 @@ async function genChart(container) {
   container.appendChild(chart);
 }
 
-const container = document.querySelector('#knowledge-graph');
+const graph_container = document.querySelector('#knowledge-graph');
 
-await genChart(container);
+var chart = genChart(graph_container);
