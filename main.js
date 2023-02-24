@@ -7,7 +7,7 @@ import { STLLoader } from 'three/addons/loaders/STLLoader.js';
 import Stats from 'three/addons/libs/stats.module.js';
 
 
-let stats, dna;
+let stats, dna, dnabox;
 
 const count = 20;
 
@@ -17,9 +17,6 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-
-// Sets the color of the background
-//renderer.setClearColor(0xFEFEFE);
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x000);
@@ -73,13 +70,7 @@ function randomInt(min, max) { // min and max included
 //
 
 const dnaPhysMat = new CANNON.Material();
-const groundGeo = new THREE.PlaneGeometry(30, 30);
-const groundMat = new THREE.MeshBasicMaterial({
-  color: 0xffffff,
-  side: THREE.DoubleSide,
-  wireframe: true
-});
-const groundMesh = new THREE.Mesh(groundGeo, groundMat);
+
 const groundPhysMat = new CANNON.Material();
 const groundDnaContactMat = new CANNON.ContactMaterial(
   groundPhysMat,
@@ -87,7 +78,6 @@ const groundDnaContactMat = new CANNON.ContactMaterial(
   { restitution: 0.9 }
 );
 
-// scene.add(groundMesh);
 
 const world = new CANNON.World({
   gravity: new CANNON.Vec3(0, -2, 0)
@@ -105,25 +95,22 @@ const groundBody = new CANNON.Body({
 
 groundBody.quaternion.setFromEuler(-Math.PI / 2, 0, 0)
 
-// Trigger body
-const boxShape = new CANNON.Box(new CANNON.Vec3(25, 1, 50))
-const triggerBody = new CANNON.Body({ isTrigger: true })
-triggerBody.addShape(boxShape)
-triggerBody.position.set(0, 0, 0)
+// // Trigger body
+// const boxShape = new CANNON.Box(new CANNON.Vec3(25, 1, 50))
+// const triggerBody = new CANNON.Body({ isTrigger: true })
+// triggerBody.addShape(boxShape)
+// triggerBody.position.set(0, 0, 0)
 
 // World Add
-world.addBody(triggerBody)
+// world.addBody(triggerBody)
 world.addBody(groundBody);
 world.addContactMaterial(groundDnaContactMat);
 
-
-let dnabox;
 let meshes = [];
 let multiboxBodies = Array();
 
 // DNA MESH
 loader.load('STL/DNA.STL', function (obj) {
-  //console.log(obj)
 
   const defaultTransform = new THREE.Matrix4()
     .makeRotationX(Math.PI)
@@ -157,23 +144,6 @@ loader.load('STL/DNA.STL', function (obj) {
   animate();
 });
 
-// It is possible to run code on the exit/enter
-// of the trigger.
-// triggerBody.addEventListener('collide', (event) => {
-//   if (event.body) {
-//     console.log('The dna entered the trigger!', event)
-
-//   }
-// })
-// world.addEventListener('endContact', (event) => {
-//   if (
-//     (event.bodyA === multiboxBodies[0] && event.bodyB === triggerBody) ||
-//     (event.bodyB === multiboxBodies[0] && event.bodyA === triggerBody)
-//   ) {
-//     console.log('The dna exited the trigger!', event)
-//   }
-// })
-
 const timeStep = 1 / 60;
 
 stats = new Stats();
@@ -183,8 +153,6 @@ document.body.appendChild(stats.dom);
 // console.log(multiboxBodies)
 
 function animate() {
-  groundMesh.position.copy(groundBody.position);
-  groundMesh.quaternion.copy(groundBody.quaternion);
 
   for (let i = 0; i < count; i++) {
     multiboxBodies[i].angularVelocity.set(0, randomInt(0, 3), 0)
@@ -243,5 +211,5 @@ selectElement.addEventListener('change', (event) => {
   const result = document.querySelector('#project-text');
   const getID = event.target.value;
   result.textContent = modelData[getID]['p'];
-  
+  // Change opacity of models
 });
