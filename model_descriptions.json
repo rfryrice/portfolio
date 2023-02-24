@@ -1,0 +1,94 @@
+{
+    "duck": {
+        "title": "Duck Gear",
+        "id": 0,
+        "models": [
+            {
+                "id": 0,
+                "filename": "DuckGear.stl",
+                "rotationx": 1
+            }
+        ],
+        "p": "This model was made to add a 3D effect to a trophy for Prettiest Boat at a cardboard boat Reggatta. The model feautres a Pirate Duck in a boxy boat. Boat was made using 3D sketch. Depth was made with various extrude heights. LxWxH 10x10x1 cm"
+
+    },
+    "EEG": {
+        "title": "EEG Board Housing",
+        "id": 1,
+        "models": [
+            {
+                "id": 1,
+                "filename": "EEGboard_housing_v3.STL",
+                "rotationx": 1
+            }            
+        ],
+        "p": "This model was designed for housing circuit boards of a Single-channel EEG device. The model features slots at the bottom for looping zipties through. The loops are sized to slide eyeglasses (arm) through. The project was for Senior design, title BrainFrames. LxWxH 5.5x3.3x4 cm"
+
+    },
+    "leaf": {
+        "title": "Emboss Sample",
+        "id": 2,
+        "models": [
+            {
+                "id": 2,
+                "filename": "SampleLeafEmboss.STL",
+                "rotationx": 1
+            }
+        ],
+        "p": "The model is a sample for CNC routing the designs for a trophy. The organic shape of leaves were the particular focus. There is also a pirate duck. MDF Board thickness 1/2 in."
+
+    },
+    "film": {
+        "title": "35mm Film Holder",
+        "id": 3,
+        "models": [
+            {
+                "id": 3,
+                "filename": "FilmHolder_Bottom.STL",
+                "x": -70,
+                "rotationx": 1
+            },
+            {
+                "id": 4,
+                "filename": "FilmHolder_Top.STL",
+                "x": 70,
+                "rotationx": 1
+            }
+        ],
+        "p": "This model is a fixture to secure 35mm film strips for digitization. The product was 3D printed and speeds up the process of digitization by having multiple fixtures on standby."
+    },
+    "models": [
+        {
+            "id": 0,
+            "filename": "DuckGear.stl",
+            "x": 0,
+            "rotationx": 1
+        },
+        {
+            "id": 1,
+            "filename": "EEGboard_housing_v3.STL",
+            "x": 100,
+            "rotationx": 1
+        },
+        {
+            "id": 2,
+            "filename": "SampleLeafEmboss.STL",
+            "x": 200,
+            "rotationx": 1
+        },
+        {
+            "id": 3,
+            "filename": "FilmHolder_Bottom.STL",
+            "x": 300,
+            "rotationx": 1
+        },
+        {
+            "id": 4,
+            "filename": "FilmHolder_Top.STL",
+            "x": 400,
+            "rotationx": 1
+        }
+
+    ]
+}
+
