@@ -1,0 +1,11 @@
+{
+    "name": "stl_viewer",
+    "version": "0.0.0",
+    "files": ["*.js"],
+    "type": "module",
+    "module": "stl_viewer.min.js",
+    "main": "stl_viewer.min.js",
+    "dependencies": {
+        "three": "~0.149.0"
+    }
+}
