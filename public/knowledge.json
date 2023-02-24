@@ -1,0 +1,136 @@
+{
+    "name": "knowledge",
+    "children": [
+        {
+            "name": "art",
+            "children": [
+                {
+                    "name": "music",
+                    "children": [
+                        {
+                            "name": "instrument",
+                            "children": [
+                                {"name": "AltoSaxophone", "value": 100, "title": ""},
+                                {"name": "BaritoneSaxophone", "value": 100, "title": ""},
+                                {"name": "Piano", "value": 200, "title": "Start playing when I was 5"}
+                            ],
+                            "title": "I play these instruments"
+                        },
+                        {
+                            "name": "genre",
+                            "children": [
+                                {"name": "Classical", "value": 300},
+                                {"name": "BigBand", "value": 380},
+                                {"name": "Jazz", "value": 300},
+                                {"name": "VideoGame", "value": 1337, "title": "Checkout Insaneintherainmusic on YT"},
+                                {"name": "RnB", "value": 470}
+                            ],
+                            "title": "These are my favorite music genres"
+                        }
+                    ],
+                    "title": ""
+                },
+                {
+                    "name": "visual",
+                    "children": [
+                        {"name": "Gimp", "value":240, "title": ""},
+                        {"name": "InkScape", "value":270, "title": "I made stickers of my cousins' dogs"},
+                        {"name": "Lightroom", "value":200, "title": ""}
+                    ],
+                    "title": "I make digital art from photos I have taken"
+                },
+                {
+                    "name": "martial",
+                    "children": [
+                        {"name": "GojuRyu", "value":2011, "title": "Shoutout to Tibon's Goju-Ryu Fighting Arts"},
+                        {"name": "YammaniRyu", "value":1013, "title": "Shoutout to RBKD"}
+                    ],
+                    "title": "Karate has played a major role in my life. I am currently a 2nd Degree Black Belt in Karate and Kobudo"
+                }
+            ],
+            "title": "Involvement in the arts is very important. You could say that making this graph is also an art."
+        },
+        {
+            "name": "science",
+            "children": [
+                {
+                    "name": "Biology",
+                    "children": [
+                        {"name": "Physiology", "value":254},
+                        {"name": "Genetics", "value":250},
+                        {"name": "Histology", "value":150},
+                        {"name": "Microbiology", "value":220},
+                        {"name": "Anatomy", "value":167}
+                    ]
+                },
+                {
+                    "name": "Chemistry",
+                    "children": [
+                        {"name":"General", "value":400, "title": "Cooking is Chemistry!"},
+                        {"name":"Organic", "value":10, "title": "Didn't take the class but learned a bit from YT University"},
+                        {"name":"SolidMaterials", "value":345, "title": "Polymers, Metals, Ceramics, etc."}
+                    ]
+                },
+                {
+                    "name": "Physics",
+                    "children": [
+                        {"name":"Statics", "value":340, "title": "Σ F = 0"},
+                        {"name":"Electricity&Magnetism", "value":220, "title": "Circuits are cool"},
+                        {"name":"Fluidics", "value":200, "title": "Shoutout to Navier and Stokes"}
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "math",
+            "children": [
+                {"name":"Calculus", "value":553, "title": "Shoutout to Dr.Beltukov"},
+                {"name":"OrdinaryDifferentialEqs", "value":400, "title": "Shoutout to Dr.Beltukov again"},
+                {"name":"LinearAlgebra", "value":480, "title": "Everything is a linear transformation"},
+                {"name":"GraphTheory", "value":200, "title": ""},
+                {"name":"ProbabilityTheory", "value":300, "title": ""},
+                {"name":"Statistics", "value":300, "title": ""}
+            ],
+            "title": "Only until I took Calculus II did I learn the definitions of a Derivative & an Integral"
+        },
+        {
+            "name": "history",
+            "children": [
+                {"name":"USAStates", "value":50},
+                {"name":"Countries", "value":12},
+                {"name":"Hometown", "value":200}
+            ],
+            "title": "I know a little about a lot of things thanks to IB History HL"
+        },
+        {
+            "name": "language",
+            "children": [
+                {
+                    "name": "spoken",
+                    "children": [
+                        {"name":"English", "value":700, "title":"Hello there."},
+                        {"name":"Spanish", "value":402, "title":"¿Dónde está la bibilioteca?"},
+                        {"name":"Tagalog", "value":400, "title":"Mabuhay!"},
+                        {"name":"Mandarin", "value":142, "title": "我喜欢冰淇淋"}
+                    ]
+                },
+                {
+                    "name": "programming",
+                    "children": [
+                        {"name":"Python", "value":600, "title": "Data Science, Web Apps, Computer Vision... you name it"},
+                        {"name":"MATLAB", "value":304, "title": "Validation Validation Validation"},
+                        {"name":"Excel", "value":100, "title": "Excel gets a bad rap in the CompSci communityl, but I think it's pretty handy"},
+                        {"name":"C++", "value":200},
+                        {"name":"HTML", "value":100, "title": "Markup Language but whatever"},
+                        {"name":"CSS", "value":100, "title": "Also, not really a programming language"},
+                        {"name":"Javascript", "value":180, "title": "Three.js and d3.js go crazy"},
+                        {"name":"LaTex", "value":220, "title": "x=\\frac{-b \\pm sqrt{b^2-4c}}{2a}"},
+                        {"name":"Unix", "value":300, "title":"My distro of choice is Ubuntu"}
+                    ]
+                }
+            ],
+            "title": "Darn you Tower of Babel"
+        }
+    ],
+    "title": "A broad summary of my hard skills, with some fun facts about me"
+}
