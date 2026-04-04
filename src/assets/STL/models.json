@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Duck Gear",
+    "path": "/src/assets/STL/DuckGear.stl",
+    "description": "This model was made to add a 3D effect to a trophy for Prettiest Boat at a cardboard boat Reggatta. The model features a Pirate Duck in a boxy boat. Boat was made using 3D sketch. Depth was made with various extrude heights. LxWxH 10x10x1 cm",
+    "camera": {
+      "position": [-12, 167, 145],
+      "target": [52, -24, 51]
+    }
+  },
+  {
+    "name": "EEG Board Housing",
+    "path": "/src/assets/STL/EEGboard_housing_v3.STL",
+    "description": "This model was designed for housing circuit boards of a Single-channel EEG device. The model features slots at the bottom for looping zipties through. The loops are sized to slide eyeglasses (arm) through. The project was for Senior design, title BrainFrames. LxWxH 5.5x3.3x4 cm",
+    "camera": {
+      "position": [139, 30, 102],
+      "target": [-4, 8.5, 18]
+    }
+  },
+  {
+    "name": "Derail Keychain",
+    "path": "/src/assets/STL/DerailKeychain_R&R.STL",
+    "description": "A keychain scale model of portable train derail. Time to complete: 2 hours.",
+    "image": "/src/assets/derail_example.jpg",
+    "camera": {
+      "position": [-35, 68, 121],
+      "target": [37, 2, 37]
+    }
+  }
+]
