@@ -2,6 +2,9 @@ import React, { useEffect, useState, Suspense } from 'react';
 import { Canvas, useLoader, useThree } from '@react-three/fiber';
 import { OrbitControls, useProgress, Html } from '@react-three/drei';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { ThreeMFLoader } from 'three/examples/jsm/loaders/3MFLoader';
+import { MeshStandardMaterial } from 'three';
 import Paper from '@mui/material/Paper';
 
 // Import model metadata from JSON
@@ -12,20 +15,52 @@ function Loader() {
   return <Html center>Loading {progress.toFixed(0)} %</Html>;
 }
 
-function STLModel({ url }) {
-  const geometry = useLoader(STLLoader, url);
-  return (
-    <mesh geometry={geometry} castShadow receiveShadow>
-      <meshStandardMaterial color="#8e8e8e" metalness={0.3} roughness={0.6} />
-    </mesh>
-  );
+
+function ModelLoader({ url, type, material }) {
+  // Choose loader and render logic based on type or file extension
+  if (type === 'stl' || url.toLowerCase().endsWith('.stl')) {
+    const geometry = useLoader(STLLoader, url);
+    return (
+      <mesh geometry={geometry} castShadow receiveShadow>
+        <meshStandardMaterial
+          color={material?.color || '#8e8e8e'}
+          metalness={material?.metalness ?? 0.3}
+          roughness={material?.roughness ?? 0.6}
+        />
+      </mesh>
+    );
+  } else if (type === 'glb' || type === 'gltf' || url.toLowerCase().endsWith('.glb') || url.toLowerCase().endsWith('.gltf')) {
+    const gltf = useLoader(GLTFLoader, url);
+    return <primitive object={gltf.scene} castShadow receiveShadow />;
+  } else if (type === '3mf' || url.toLowerCase().endsWith('.3mf')) {
+    const object = useLoader(ThreeMFLoader, url);
+    // 3MFLoader returns a Group or Object3D
+    // Optionally override material if defined
+    if (material) {
+      object.traverse((child) => {
+        if (child.isMesh) {
+          child.material = new MeshStandardMaterial({
+            color: material.color || '#8e8e8e',
+            metalness: material.metalness ?? 0.3,
+            roughness: material.roughness ?? 0.6,
+          });
+        }
+      });
+    }
+    return <primitive object={object} castShadow receiveShadow />;
+  } else {
+    return <Html center>Unsupported file type</Html>;
+  }
 }
 
 export default function STLViewer() {
+
+  // Add support for type field, fallback to extension
   const [selected, setSelected] = useState(modelsData[0].path);
   const [cameraState, setCameraState] = useState({ position: [0, 0, 80], target: [0, 0, 0] });
 
   const selectedModel = modelsData.find((m) => m.path === selected);
+  const selectedType = selectedModel?.type || (selected?.split('.').pop()?.toLowerCase());
 
   // Update camera state when model changes
   useEffect(() => {
@@ -97,7 +132,7 @@ export default function STLViewer() {
           <ambientLight intensity={0.6} />
           <directionalLight position={[10, 10, 10]} intensity={1.6} castShadow />
           <Suspense fallback={<Loader />}>
-            <STLModel url={selected} />
+            <ModelLoader url={selected} type={selectedType} material={selectedModel?.material} />
           </Suspense>
           <OrbitControls enablePan enableZoom enableRotate makeDefault />
           <CameraUpdater position={cameraState.position} target={cameraState.target} />
@@ -127,7 +162,11 @@ export default function STLViewer() {
                 }}
               />
             )}
-            <div style={{fontSize: 16, lineHeight: 1.6}}>{selectedModel.description}</div>
+            <div style={{fontSize: 16, lineHeight: 1.6}}>
+              {Array.isArray(selectedModel.description)
+                ? selectedModel.description.join(' ')
+                : selectedModel.description}
+            </div>
           </>
         ) : (
           <div>Select a model to see its description.</div>

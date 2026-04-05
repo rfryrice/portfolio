@@ -4,13 +4,16 @@ import { motion } from "motion/react";
 export default function TextReveal({
   text = "Hello from Motion + React",
   as: Tag = "h1",
+  delay = 0,
 }) {
+  const stagger = 0.03;
   const container = {
     hidden: { opacity: 1 },
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.03, // time between letters
+        staggerChildren: stagger, // time between letters
+        delay,
       },
     },
   };

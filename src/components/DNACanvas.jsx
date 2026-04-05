@@ -9,6 +9,7 @@ export default function DNAHelixCanvas({
     backboneOffset = 24,
     rungEvery = 14,
     title = "Portfolio",
+    name = "Romuald Francis Yang",
 }) {
     const canvasRef = useRef(null);
     const rafRef = useRef(0);
@@ -154,18 +155,48 @@ export default function DNAHelixCanvas({
             >
                 <span
                     style={{
-                        background: "#0B1020",        // opaque background
+                        position: "relative",
                         color: "rgba(255,255,255,0.95)",
-                        padding: "12px 18px",
-                        borderRadius: 12,
-                        fontWeight: 800,
+                        fontWeight: 600,
                         letterSpacing: "0.12em",
                         textTransform: "uppercase",
-                        boxShadow: "0 10px 30px rgba(0,0,0,0.45)",
-                        border: "1px solid rgba(255,255,255,0.10)",
+                        textAlign: "center",
+                        lineHeight: 1.4,
+                        padding: 0,
+                        border: 0,
+                        display: "inline-block"
                     }}
                 >
-                    {title}
+                    <svg
+                        width="340"
+                        height="60"
+                        viewBox="0 0 340 60"
+                        style={{
+                            position: "absolute",
+                            left: "50%",
+                            top: "50%",
+                            transform: "translate(-50%, -50%)",
+                            zIndex: 0,
+                            pointerEvents: "none"
+                        }}
+                    >
+                        <defs>
+                            <radialGradient id="ellipseShadow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stopColor="#0B1020" stopOpacity="0.92" />
+                                <stop offset="70%" stopColor="#0B1020" stopOpacity="0.55" />
+                                <stop offset="100%" stopColor="#0B1020" stopOpacity="0.08" />
+                            </radialGradient>
+                        </defs>
+                        <ellipse
+                            cx="170"
+                            cy="30"
+                            rx="150"
+                            ry="22"
+                            fill="url(#ellipseShadow)"
+                        />
+                    </svg>
+                    <span style={{ display: "block", fontSize: "0.9em", fontFamily: "system-ui, -apple-system, sans-serif", position: "relative", zIndex: 1 }}>{name}</span>
+                    <span style={{ display: "block", fontSize: "0.65em", opacity: 0.7, fontWeight: 600, letterSpacing: "0.2em", fontFamily: "system-ui, -apple-system, sans-serif", position: "relative", zIndex: 1 }}>{title}</span>
                 </span>
             </h1>
         </div>
